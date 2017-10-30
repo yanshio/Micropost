@@ -20,6 +20,13 @@ class MicropostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
   
+  def favorited
+    @user = User.find(params[:id])
+    @favorited = @user.favorited.page(params[:page])
+    
+  end
+  
+  
 private
 
   def micropost_params

@@ -1,0 +1,50 @@
+<h1><%=current_user.name%>のお気に入りMicropost一覧</h1>
+
+<%#<ul>%>
+  <%# @favorites.each do |favorite| %>
+    <%# @micropost.each do |micropost| %>
+      <%# @user.each do |user| %>
+        <%#if current_user.id == favorite.user_id %>
+          <%#if favorite.micropost_id == micropost.id %>
+            <%# if micropost.user_id == user.id %>
+
+              <%#<li><%= user.name %><%#:<%= micropost.content %><%#</li>%>
+              
+
+            <%# end %>
+          <%# end %>
+        <%# end %>
+      <%# end %>
+    <%# end %>
+  <%# end %>
+<%#</ul>%>
+
+
+<table class="table table-striped">
+      <thead>
+      <tr>
+        <th>投稿者</th>
+        <th>Micropost</th>
+      </tr>
+    </thead>
+    <tbody>
+  <% @favorite.each do |favorite| %>
+    <% @micropost.each do |micropost| %>
+      <% @user.each do |user| %>
+        <%if current_user.id == favorite.user_id %>
+          <%if favorite.micropost_id == micropost.id %>
+            <% if micropost.user_id == user.id %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= micropost.content %></td>
+
+        </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+    </tbody>
+  </table>
+
